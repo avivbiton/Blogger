@@ -13,10 +13,10 @@ export default function Navbar() {
                     <Link to="/" className="link-item">Posts</Link>
                 </div>
                 <div className="col-md-2 mb-2 mb-md-0">
-                    <Link to="/" className="link-item">Contact Me</Link>
+                    <Link to="/contact-me" className="link-item">Contact Me</Link>
                 </div>
                 <div className="col-md-2 mb-2 mb-md-0">
-                    <Link to="/" className="link-item">About</Link>
+                    <Link to="/about" className="link-item">About</Link>
                 </div>
                 <div className="col-md-3">
 
