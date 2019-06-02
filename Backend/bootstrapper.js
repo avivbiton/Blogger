@@ -6,7 +6,6 @@ const Routes = require("./Loaders/Routes");
 
 
 function bootstrap(app) {
-
     const loader = new Loader(app);
 
     loader.Load(Middleware);
