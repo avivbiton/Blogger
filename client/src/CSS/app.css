@@ -1,0 +1,17 @@
+body {
+    font-family: 'Zilla Slab', serif;
+
+}
+
+a {
+    color: #5a5f5b;
+}
+
+a:hover {
+    color: #303431;
+}
+
+nav .link-item {
+    font-size: 150%;
+    
+}
