@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import PostsDisplayer from "./components/PostsDisplayer";
 import NotFound from "./components/NotFound";
+import ViewPost from "./components/ViewPost";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={PostsDisplayer} />
+        <Route path="/post/:id" component={ViewPost} />
+        <Route exact path="/create-post" component={CreatePost} />
         <Route component={NotFound} />
       </Switch>
     </Router>
