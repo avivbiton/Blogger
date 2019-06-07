@@ -1,5 +1,7 @@
 import React from "react";
 import "./CSS/app.css";
+import "./CSS/Draft.css";
+import "./CSS/RichEditor.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";

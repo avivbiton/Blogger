@@ -1,31 +1,22 @@
 import React, { useState } from "react";
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import { stateToHTML } from "draft-js-export-html";
+import RichTextEditor from "./RichTextEditor";
 
 export default function CreatePost() {
 
-    const [editorState, setEditorState] = useState(EditorState.createEmpty());
+    const [html, setHtml] = useState(null);
 
-
-
-    function toggleBold() {
-        console.log("bold");
-        setEditorState(RichUtils.toggleInlineStyle(
-            editorState,
-            "BOLD"
-        ));
+    function onEditorChange(content) {
+        const html = stateToHTML(content);
+        setHtml(html);
     }
 
     return (
         <div className="container">
             <h1>Editor</h1>
-            <div className="border" style={{ height: "400px" }}>
-                <button className="btn btn-secondary" onClick={() => toggleBold()}>Bold</button>
-                <Editor
-                    editorState={editorState}
-                    onChange={editorState => setEditorState(editorState)}
-                    placeholder="enter some text..."
-
-                />
+            <RichTextEditor setOnChange={content => onEditorChange(content)} />
+            <div className="py-4" dangerouslySetInnerHTML={{__html: html}}>
+                
             </div>
         </div>
     )
