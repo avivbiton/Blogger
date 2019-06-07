@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const helmet = require("helmet");
-const bootstraper = require("./Backend/bootstrapper");
+const bootstrapper = require("./Backend/bootstrapper");
 
 const app = express();
 
@@ -11,8 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //app.use(express.static(path.join(__dirname, 'public')));
-
-bootstraper(app);
+require("./Backend/Database/connection");
+bootstrapper(app);
 
 app.listen(PORT, () => {
     console.log(`Application running on port ${PORT}`);

@@ -13,7 +13,7 @@ export default function PostsDisplayer() {
     return (
         <div className="container">
 
-            {posts.map(post => <Post key={post.id} title={post.title} text={post.text} date={post.date} />)}
+            {posts.map(post => <Post key={post.id} id={post.id} title={post.title} text={post.text} date={post.date} />)}
 
         </div>
     )
