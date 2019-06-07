@@ -28,12 +28,12 @@ function ViewPost({ history, match }) {
                     <p className="lead bg-secondary text-white py-2 pl-2 rounded">Posted <Moment fromNow>{post.date}</Moment></p>
                     <hr />
                 </div>
-                <div className="row">
+            </div>
+            <div className="row">
                     <div className="col">
                         <p className="px-2 post-text" dangerouslySetInnerHTML={{__html: post.text}} />                          
                     </div>
                 </div>
-            </div>
         </div>
     )
 }

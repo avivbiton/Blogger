@@ -10,6 +10,18 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.get("/:id", async (req, res, next) => {
+
+    const id = req.params.id;
+    try {
+        const post = await Post.findById(id);
+        return res.json(post);
+    } catch (error) {
+        next(error);
+    }
+
+});
+
 
 router.post("/", async (req, res, next) => {
 
@@ -23,7 +35,7 @@ router.post("/", async (req, res, next) => {
         await newPost.save();
         return res.json({ saved: true });
     }
-    catch(error) {
+    catch (error) {
         next(error);
     }
 });
