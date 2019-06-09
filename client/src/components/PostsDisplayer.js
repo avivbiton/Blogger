@@ -5,7 +5,7 @@ import { fetchAll } from "../API/postAPI";
 export default function PostsDisplayer() {
 
     const [posts, setPosts] = useState([]);
-   
+
     useEffect(() => {
         fetchAll()
             .then(data => setPosts(data));
@@ -14,7 +14,14 @@ export default function PostsDisplayer() {
     return (
         <div className="container">
 
-            {posts.map(post => <Post key={post._id} id={post._id} title={post.title} text={post.text} date={post.date} />)}
+            <div className="row">
+                {posts.map(post =>
+                    <div key={post._id} className="col-lg-4 col-md-6 mb-4">
+                        <Post id={post._id} title={post.title}
+                            date={post.date} image={post.image} />
+                    </div>
+                )}
+            </div>
 
         </div>
     )

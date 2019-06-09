@@ -25,10 +25,12 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
 
-    const { title, text } = req.body;
+    const { title, text, description, image } = req.body;
     const newPost = new Post({
         title: title,
-        text: text
+        text: text,
+        description: description,
+        image: image
     });
 
     try {

@@ -6,6 +6,10 @@ const postSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    image: {
+        type: String,
+        default: "/images/not-found.jpg"
     }
 });
 

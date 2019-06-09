@@ -23,6 +23,9 @@ nav .link-item {
     line-height: 33.18px;
    
 }
-.editor {
-     
+
+.post-card-img {
+    width: 100%;
+    height: 300px;
+    cursor:pointer;
 }
