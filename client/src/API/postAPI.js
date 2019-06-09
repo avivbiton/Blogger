@@ -19,3 +19,16 @@ export const fetchAll = async () => {
             }).catch(error => reject(error));
     });
 };
+
+export const createPost = async (title, image, text) => {
+    return new Promise(function (resolve, reject) {
+        const dataObject = {
+            title: title,
+            image: image,
+            text: text
+        };
+        axios.post("/posts", dataObject)
+            .then(response => resolve(true))
+            .catch(error => reject(error));
+    });
+}
