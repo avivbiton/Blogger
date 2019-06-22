@@ -4,7 +4,7 @@ const router = express.Router();
 const Post = require("../Models/Post");
 
 router.get("/", (req, res, next) => {
-    Post.find({}, null, { limit: 10 }, (error, results) => {
+    Post.find({},"_id title image date", { limit: 10 }, (error, results) => {
         if (error) return next(error);
         return res.json(results);
     });

@@ -24,6 +24,11 @@ function ViewPost({ history, match }) {
         <div className="container">
             <div className="row">
                 <div className="col">
+                    <img src={post.image} alt={post.title} style={{width: "100%", height: "350px"}} />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
                     <h3 className="display-4">{post.title}</h3>
                     <p className="lead bg-secondary text-white py-2 pl-2 rounded">Posted <Moment fromNow>{post.date}</Moment></p>
                     <hr />

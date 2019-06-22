@@ -5,7 +5,7 @@ import Moment from "react-moment";
 function Post({ id, title, date, image, history }) {
 
     return (
-        <div className="card shadow-sm h-100">
+        <article className="card shadow-sm h-100">
 
             <button className="btn p-0" onClick={() => {
                 history.push(`/post/${id}`)
@@ -22,7 +22,7 @@ function Post({ id, title, date, image, history }) {
                 <small className="text-muted">Posted <Moment fromNow>{date}</Moment></small>
             </div>
 
-        </div>
+        </article>
     )
 }
 
