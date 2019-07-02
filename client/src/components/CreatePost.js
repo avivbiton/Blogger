@@ -31,7 +31,7 @@ function CreatePost({ history }) {
                 </div>
                 <div className="col-12">
                     <div className="form-group">
-                        <label for="postImage">Local Image path</label>
+                        <label htmlFor="postImage">Local Image path</label>
                         <input type="text" id="postImage" className="form-control" {...bindImage} />
                     </div>
                 </div>
