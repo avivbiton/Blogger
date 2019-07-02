@@ -1,5 +1,37 @@
 import React from "react";
-import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from 'draft-js';
+import Editor from "draft-js-plugins-editor";
+import { EditorState, RichUtils, getDefaultKeyBinding } from 'draft-js';
+import createSideToolbarPlugin from 'draft-js-side-toolbar-plugin';
+import BlockTypeSelect from 'draft-js-side-toolbar-plugin/lib/components/BlockTypeSelect';
+import createIframelyPlugin from "@jimmycode/draft-js-iframely-plugin";
+import 'draft-js-side-toolbar-plugin/lib/plugin.css';
+import '@jimmycode/draft-js-iframely-plugin/lib/plugin.css';
+
+
+const iframePlugin = createIframelyPlugin({
+    options: {
+        handleOnReturn: true,
+        handleOnPaste: true
+    }
+});
+
+const DefaultBlockTypeSelect = ({ getEditorState, setEditorState, theme }) => (
+    <BlockTypeSelect
+        getEditorState={getEditorState}
+        setEditorState={setEditorState}
+        theme={theme}
+        structure={[
+            iframePlugin.EmbedButton
+        ]}
+    />
+);
+const sideToolbarPlugin = createSideToolbarPlugin({
+    structure: [DefaultBlockTypeSelect],
+});
+const { SideToolbar } = sideToolbarPlugin;
+
+
+const plugins = [sideToolbarPlugin, iframePlugin];
 
 export default class RichTextEditor extends React.Component {
     constructor(props) {
@@ -77,6 +109,7 @@ export default class RichTextEditor extends React.Component {
                     editorState={editorState}
                     onToggle={this.toggleInlineStyle}
                 />
+
                 <div className={className} onClick={this.focus}>
                     <Editor
                         blockStyleFn={getBlockStyle}
@@ -88,7 +121,9 @@ export default class RichTextEditor extends React.Component {
                         placeholder=""
                         ref="editor"
                         spellCheck={true}
+                        plugins={plugins}
                     />
+                    <SideToolbar />
                 </div>
             </div>
         );

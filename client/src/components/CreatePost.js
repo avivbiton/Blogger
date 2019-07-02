@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { stateToHTML } from "draft-js-export-html";
+import { convertToHTML } from "draft-convert";
 import RichTextEditor from "./RichTextEditor";
 import { createPost } from "../API/postAPI";
 import { withRouter } from "react-router-dom";
