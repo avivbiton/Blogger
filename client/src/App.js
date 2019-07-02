@@ -19,6 +19,7 @@ import reduxStore from "./redux/store";
 import AuthorizePage from "./components/AuthorizePage";
 
 import onStartup from "./startup";
+import RestrictedRoute from "./components/RestrictedRoute";
 onStartup(reduxStore);
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <Route exact path="/" component={PostsDisplayer} />
           <Route exact path="/about" component={AboutPage} />
           <Route path="/post/:id" component={ViewPost} />
-          <Route exact path="/create-post" component={CreatePost} />
+          <RestrictedRoute component={CreatePost}  exact path="/create-post" />
           <Route exact path="/auth" component={AuthorizePage} />
           <Route component={NotFound} />
         </Switch>

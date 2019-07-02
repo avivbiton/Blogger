@@ -5,5 +5,12 @@ export const applyAuthKey = (key) => {
     axios.defaults.headers.common["key"] = key;
 }
 
-
+export const validateAuth = async () => {
+    try {
+        await axios.get("/auth/validate");
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
