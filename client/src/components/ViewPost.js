@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { fetchPost } from "../API/postAPI";
 import Moment from "react-moment";
+import Loading from "./Loading";
 
 function ViewPost({ history, match }) {
 
@@ -19,6 +20,8 @@ function ViewPost({ history, match }) {
         };
         getPostFrombackend();
     }, [match.params.id, history]);
+
+    if(post === false) return <LoadingDisplay />
 
     return (
         <div className="container">
@@ -40,6 +43,13 @@ function ViewPost({ history, match }) {
                     </div>
                 </div>
         </div>
+    )
+}
+
+
+function LoadingDisplay() {
+    return (
+        <Loading center width="3" height="3" />
     )
 }
 

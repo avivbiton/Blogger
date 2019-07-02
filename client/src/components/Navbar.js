@@ -16,7 +16,7 @@ export default function Navbar() {
                     <Link to="/about" className="link-item">About</Link>
                 </div>
                 <div className="col-md-2 mb-2 mb-md-0">
-                    <Link to="/source-code" className="link-item">Source Code</Link>
+                    <a href="https://github.com/avivbiton/Blogger" target="_blank" rel="noopener noreferrer" className="link-item">Source Code</a>
                 </div>
                 <div className="col-md-3">
 

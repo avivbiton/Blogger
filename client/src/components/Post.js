@@ -18,8 +18,8 @@ function Post({ id, title, date, image, history }) {
                     {title}
                 </h3>
             </div>
-            <div className="card-footer">
-                <small className="text-muted">Posted <Moment fromNow>{date}</Moment></small>
+            <div className="card-footer bg-dark">
+                <small className="text-light">Posted <Moment fromNow>{date}</Moment></small>
             </div>
 
         </article>
