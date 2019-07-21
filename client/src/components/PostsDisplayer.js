@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Post from "./Post";
 import { fetchAll } from "../API/postAPI";
 import Loading from "./Loading";
+import { setPosts as cachePosts } from "../redux/actions/postActions";
 
-export default function PostsDisplayer() {
+function PostsDisplayer({ blogPosts, cachePosts }) {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetchAll()
-            .then(data => setPosts(data));
-    }, []);
+        if (blogPosts.length === 0) {
+            fetchAll()
+                .then(data => {
+                    setPosts(data);
+                    cachePosts(data);
+                });
+        } else {
+            setPosts(blogPosts);
+        }
+    }, [blogPosts, cachePosts]);
 
     if (posts.length === 0)
         return <LoadingDisplay />
@@ -39,3 +48,9 @@ function LoadingDisplay() {
         </div>
     )
 }
+
+const mapStateToProps = (state) => ({
+    blogPosts: state.postReducer.posts
+});
+
+export default connect(mapStateToProps, { cachePosts })(PostsDisplayer);
